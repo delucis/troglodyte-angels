@@ -20,15 +20,17 @@ function playCurve() {
     oscillatorState = 1;
     oscillator.start(0);
   }
-  gainNode.gain.value = 1;
+  oscGain.gain.setValueAtTime(0, audioContext.currentTime);
+  oscGain.gain.linearRampToValueAtTime(1, audioContext.currentTime + 0.05);
   if (stopButton.disabled == true) {
     stopButton.disabled = false;
   }
 }
 
 function mute() {
-  if (gainNode) {
-    gainNode.gain.value = 0;
+  if (oscGain) {
+    oscGain.gain.setValueAtTime(1, audioContext.currentTime);
+    oscGain.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.05);
     stopButton.disabled = true;
   }
 }
