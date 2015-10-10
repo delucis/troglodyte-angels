@@ -12,8 +12,8 @@ gainNode.gain.value = 0;
 oscillator.connect(gainNode);
 gainNode.connect(audioContext.destination);
 
-playButton.onclick = playCurve;
-stopButton.onclick = mute;
+playButton.onmousedown = playCurve;
+stopButton.onmousedown = mute;
 
 function playCurve() {
   if (oscillatorState === 0) {
