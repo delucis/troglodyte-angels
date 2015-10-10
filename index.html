@@ -23,22 +23,41 @@
         <![endif]-->
     <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-default navbar-btn navbar-right" data-toggle="modal" data-target="#myModal">
+            <span class="sr-only">More info</span>
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
           </button>
           <a class="navbar-brand" href="#">Troglodyte Angels</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">About</a></li>
-          </ul>
-        </div><!--/.navbar-collapse -->
       </div>
     </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">About this page</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              This page provides the performance interface for the spatialised synthesis component of <a href="http://claraiannotta.com/" class="navbar-link">Clara Iannotta</a>’s <em>Troglodyte Angels Clank By</em>.
+            </p>
+            <h5>How to use</h5>
+            <ol>
+              <li>Select which instrumental part you are performing from the <strong>Instrument</strong> menu.</li>
+              <li>Make sure your device has an appropriate volume setting.</li>
+              <li>If starting from the beginning of the piece, press <strong><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Play Next</strong> to trigger your first cue.</li>
+              <li>In rehearsal you can use the plus and minus buttons to adjust which cue you want to trigger next.</li>
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="container text-center">
       <div class="row">
