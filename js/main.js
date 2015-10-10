@@ -29,6 +29,7 @@ playButton.onmousedown = playCurve;
 stopButton.onmousedown = mute;
 incCueButton.onmousedown = cueIncrement;
 decCueButton.onmousedown = cueDecrement;
+nextCueNum.oninput = updateNextCue;
 gainSlider.oninput = adjustGain;
 
 
@@ -63,6 +64,9 @@ function cueDecrement() {
     nextCueNum.stepDown(1);
     nextCue = nextCueNum.valueAsNumber;
   }
+}
+function updateNextCue() {
+  nextCue = nextCueNum.valueAsNumber;
 }
 
 function adjustGain() {
