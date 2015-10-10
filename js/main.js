@@ -7,7 +7,7 @@ var decCueButton = document.querySelector('#decrementNextCue');
 var gainSliderVal = gainSlider.value;
 var audioContext = new AudioContext();
 var masterGainNode = audioContext.createGain();
-var masterGainVal = gainSliderVal;
+var masterGainVal = gainSliderVal * gainSliderVal;
 var oscGain = audioContext.createGain();
 var oscillator = audioContext.createOscillator();
 var oscillatorState = 0;
@@ -71,6 +71,6 @@ function updateNextCue() {
 
 function adjustGain() {
   gainSliderVal = gainSlider.value;
-  masterGainNode.gain.linearRampToValueAtTime(gainSliderVal, audioContext.currentTime + 0.1);
-  masterGainVal = gainSliderVal;
+  masterGainNode.gain.linearRampToValueAtTime(gainSliderVal * gainSliderVal, audioContext.currentTime + 0.1);
+  masterGainVal = gainSliderVal * gainSliderVal;
 }
