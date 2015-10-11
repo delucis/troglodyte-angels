@@ -50,23 +50,30 @@ function playNext() {
       oscillator.disconnect();
     };
   }
-  oscGainNode.gain.cancelScheduledValues(audioContext.currentTime);
-  oscGainNodeVal = oscGainNode.gain.value;
-  oscGainNode.gain.setValueAtTime(oscGainNodeVal, audioContext.currentTime);
-  oscGainNode.gain.linearRampToValueAtTime(1, audioContext.currentTime + 0.05);
+  gainChange(1);
   if (stopButton.disabled == true) {
     stopButton.disabled = false;
   }
 }
 
 function mute() {
+  gainChange(0);
+  oscillator.stop(audioContext.currentTime + 0.06);
+  stopButton.disabled = true;
+}
+
+function gainChange(newLevel, time) {
+  if (newLevel === undefined) {
+    throw "gainChange() needs at least one argument";
+  }
+  if (time === undefined) {
+    time = 0.05;
+  }
   if (oscGainNode) {
     oscGainNode.gain.cancelScheduledValues(audioContext.currentTime);
     oscGainNodeVal = oscGainNode.gain.value;
     oscGainNode.gain.setValueAtTime(oscGainNodeVal, audioContext.currentTime);
-    oscGainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.05);
-    oscillator.stop(audioContext.currentTime + 0.06);
-    stopButton.disabled = true;
+    oscGainNode.gain.linearRampToValueAtTime(newLevel, audioContext.currentTime + time);
   }
 }
 
