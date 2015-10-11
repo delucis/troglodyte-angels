@@ -168,6 +168,20 @@ function updateNextCue() {
   } else {
   }
 }
+function cueIncDecEnabler() {
+  if (nextCue <= minCue) {
+    decCueButton.disabled = true;
+  }
+  if (nextCue > minCue) {
+    decCueButton.disabled = false;
+  }
+  if (nextCue >= maxCue) {
+    incCueButton.disabled = true;
+  }
+  if (nextCue < maxCue) {
+    incCueButton.disabled = false;
+  }
+}
 
 function adjustGain() {
   gainSliderVal = gainSlider.value;
