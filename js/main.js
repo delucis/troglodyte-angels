@@ -24,6 +24,24 @@ var oscGainNodeVal = oscGainNode.gain.value;
 // declare empty initial oscillator variables
 var oscillator = null;
 var oscillatorState = 0;
+
+// load cue file from JSON
+var instrumentList = new Array();
+var workCues = jQuery.getJSON("cue-data.json", function(data) {
+  for (var i in data.instruments) {
+    instrumentList.push(data.instruments[i].name);
+  }
+  while (instrumentsMenu.options.length > 0) {
+    instrumentsMenu.remove(instrumentsMenu.options.length - 1);
+  }
+  for (i = 0; i < instrumentList.length; i++) {
+    var opt = document.createElement("option");
+    opt.value = i;
+    opt.text = instrumentList[i];
+    instrumentsMenu.add(opt, null)
+  }
+});
+
 // set up next cue system variables
 var nextCue = nextCueNum.valueAsNumber;
 var minCue = 1;
