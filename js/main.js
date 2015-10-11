@@ -10,19 +10,15 @@ var masterGainNode = audioContext.createGain();
 var masterGainVal = gainSliderVal * gainSliderVal;
 var tempVal = masterGainNode.gain.value;
 var oscGain = audioContext.createGain();
-var oscillator = audioContext.createOscillator();
 var oscillatorState = 0;
 
 var nextCue = nextCueNum.valueAsNumber;
 var minCue = 1;
 var maxCue = Infinity;
 
-oscillator.type = 'sine';
-oscillator.frequency.value = 1000;
 oscGain.gain.value = 0;
 masterGainNode.gain.value = masterGainVal;
 
-oscillator.connect(oscGain);
 oscGain.connect(masterGainNode);
 masterGainNode.connect(audioContext.destination);
 
@@ -36,8 +32,16 @@ gainSlider.oninput = adjustGain;
 
 function playNext() {
   if (oscillatorState === 0) {
+    oscillator = audioContext.createOscillator();
+    oscillator.type = 'sine';
+    oscillator.frequency.value = 1000;
+    oscillator.connect(oscGainNode);
     oscillatorState = 1;
     oscillator.start(0);
+    oscillator.onended = function() {
+      oscillatorState = 0;
+      oscillator.disconnect();
+    };
   }
   oscGain.gain.setValueAtTime(0, audioContext.currentTime);
   oscGain.gain.linearRampToValueAtTime(1, audioContext.currentTime + 0.05);
@@ -50,6 +54,7 @@ function mute() {
   if (oscGain) {
     oscGain.gain.setValueAtTime(1, audioContext.currentTime);
     oscGain.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.05);
+    oscillator.stop(audioContext.currentTime + 0.06);
     stopButton.disabled = true;
   }
 }
