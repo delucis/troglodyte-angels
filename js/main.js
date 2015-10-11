@@ -100,21 +100,15 @@ function playNext() {
   }
   gainChange(1);
   setCurrentCue();
-  if (stopButton.disabled == true) {
-    stopButton.disabled = false;
-  }
-  if (instrumentsMenu.disabled == false) {
-    instrumentsMenu.disabled = true;
-  }
+  stopButton.disabled = false;
+  instrumentsMenu.disabled = true;
 }
 
 function mute() {
   gainChange(0);
   oscillator.stop(audioContext.currentTime + 0.06);
   stopButton.disabled = true;
-  if (instrumentsMenu.disabled == true) {
-    instrumentsMenu.disabled = false;
-  }
+  instrumentsMenu.disabled = false;
 }
 
 function gainChange(newLevel, time) {
