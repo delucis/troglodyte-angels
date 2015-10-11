@@ -1,27 +1,32 @@
+// collect UI elements as variables
 var playButton = document.querySelector('#playNext');
 var stopButton = document.querySelector('#stopButton');
 var gainSlider = document.querySelector('#gainSlider');
 var nextCueNum = document.querySelector('#nextCue');
 var incCueButton = document.querySelector('#incrementNextCue');
 var decCueButton = document.querySelector('#decrementNextCue');
+// get volume slider’s current value
 var gainSliderVal = gainSlider.value;
+// create audio context
 var audioContext = new AudioContext();
+// create master gain, set it using the slider value, & connect to output
 var masterGainNode = audioContext.createGain();
-var masterGainVal = gainSliderVal * gainSliderVal;
-var tempVal = masterGainNode.gain.value;
-var oscGain = audioContext.createGain();
+masterGainNode.gain.value = gainSliderVal * gainSliderVal;
+masterGainNode.connect(audioContext.destination);
+var masterGainNodeVal = masterGainNode.gain.value; // variable to pass on current gain value
+// create gain node to control oscillator amplitude, set to 0, & connect to master gain
+var oscGainNode = audioContext.createGain();
+oscGainNode.gain.value = 0;
+oscGainNode.connect(masterGainNode);
+var oscGainNodeVal = oscGainNode.gain.value;
+// declare empty initial oscillator variables
+var oscillator = null;
 var oscillatorState = 0;
-
+// set up next cue system variables
 var nextCue = nextCueNum.valueAsNumber;
 var minCue = 1;
 var maxCue = Infinity;
-
-oscGain.gain.value = 0;
-masterGainNode.gain.value = masterGainVal;
-
-oscGain.connect(masterGainNode);
-masterGainNode.connect(audioContext.destination);
-
+// associate functions with UI actions
 playButton.onmousedown = playNext;
 stopButton.onmousedown = mute;
 incCueButton.onmousedown = cueIncrement;
@@ -29,7 +34,9 @@ decCueButton.onmousedown = cueDecrement;
 nextCueNum.oninput = updateNextCue;
 gainSlider.oninput = adjustGain;
 
-
+// = = = = = = = = = = //
+//  F U N C T I O N S  //
+// = = = = = = = = = = //
 function playNext() {
   if (oscillatorState === 0) {
     oscillator = audioContext.createOscillator();
@@ -43,17 +50,21 @@ function playNext() {
       oscillator.disconnect();
     };
   }
-  oscGain.gain.setValueAtTime(0, audioContext.currentTime);
-  oscGain.gain.linearRampToValueAtTime(1, audioContext.currentTime + 0.05);
+  oscGainNode.gain.cancelScheduledValues(audioContext.currentTime);
+  oscGainNodeVal = oscGainNode.gain.value;
+  oscGainNode.gain.setValueAtTime(oscGainNodeVal, audioContext.currentTime);
+  oscGainNode.gain.linearRampToValueAtTime(1, audioContext.currentTime + 0.05);
   if (stopButton.disabled == true) {
     stopButton.disabled = false;
   }
 }
 
 function mute() {
-  if (oscGain) {
-    oscGain.gain.setValueAtTime(1, audioContext.currentTime);
-    oscGain.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.05);
+  if (oscGainNode) {
+    oscGainNode.gain.cancelScheduledValues(audioContext.currentTime);
+    oscGainNodeVal = oscGainNode.gain.value;
+    oscGainNode.gain.setValueAtTime(oscGainNodeVal, audioContext.currentTime);
+    oscGainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.05);
     oscillator.stop(audioContext.currentTime + 0.06);
     stopButton.disabled = true;
   }
@@ -78,8 +89,7 @@ function updateNextCue() {
 function adjustGain() {
   gainSliderVal = gainSlider.value;
   masterGainNode.gain.cancelScheduledValues(audioContext.currentTime);
-  tempVal = masterGainNode.gain.value;
-  masterGainNode.gain.setValueAtTime(tempVal, audioContext.currentTime);
+  masterGainNodeVal = masterGainNode.gain.value;
+  masterGainNode.gain.setValueAtTime(masterGainNodeVal, audioContext.currentTime);
   masterGainNode.gain.linearRampToValueAtTime(gainSliderVal * gainSliderVal, audioContext.currentTime + 0.03);
-  masterGainVal = gainSliderVal * gainSliderVal;
 }
