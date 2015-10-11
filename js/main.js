@@ -99,6 +99,7 @@ function playNext() {
     };
   }
   gainChange(1);
+  // set current cue display and increment next cue
   setCurrentCue();
   stopButton.disabled = false;
   instrumentsMenu.disabled = true;
