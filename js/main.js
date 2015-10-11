@@ -80,7 +80,8 @@ function loadInstrumentCues(instrumentIndex) {
   }
   cueArray = Object.keys(cueList[currentInstrument]);
   maxCue = cueArray.length - 1;
-  nextCueNum.value = cueArray[minCue];
+  nextCue = minCue;
+  nextCueNum.value = cueArray[nextCue];
 }
 
 function playNext() {
