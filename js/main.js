@@ -58,7 +58,11 @@ jQuery.getJSON("cue-data.json", function(data) {
   instrumentsMenu.selectedIndex = 0;
   // initialise default cueArray
   loadInstrumentCues(0);
-});
+})
+  // display error alert if JSON load fails
+  .fail(function() {
+    insertErrorAlert("Could not load cue data");
+  });
 
 // associate functions with UI actions
 instrumentsMenu.onchange = loadInstrumentCues;
