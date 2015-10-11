@@ -26,7 +26,7 @@ oscillator.connect(oscGain);
 oscGain.connect(masterGainNode);
 masterGainNode.connect(audioContext.destination);
 
-playButton.onmousedown = playCurve;
+playButton.onmousedown = playNext;
 stopButton.onmousedown = mute;
 incCueButton.onmousedown = cueIncrement;
 decCueButton.onmousedown = cueDecrement;
@@ -34,7 +34,7 @@ nextCueNum.oninput = updateNextCue;
 gainSlider.oninput = adjustGain;
 
 
-function playCurve() {
+function playNext() {
   if (oscillatorState === 0) {
     oscillatorState = 1;
     oscillator.start(0);
