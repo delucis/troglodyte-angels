@@ -4,11 +4,11 @@
       "name": "flute",
       "cues": {
         "7": {
-          "frequency": [800, 5],
+          "frequency": [800, 50],
           "amplitude": [1, 1000, 0, 3000, 1, 1000, 0, 3000]
         },
         "12": {
-          "frequency": [600, 5],
+          "frequency": [600, 50],
           "amplitude": [1, 4000]
         },
         "22": {
@@ -20,11 +20,11 @@
       "name": "clarinet",
       "cues": {
         "7": {
-          "frequency": [1200, 5],
+          "frequency": [1200, 50],
           "amplitude": [1, 500, 0, 50, 1, 1000, 0, 50]
         },
         "15": {
-          "frequency": [600, 5, 700, 6000],
+          "frequency": [600, 50, 700, 6000],
           "amplitude": [1, 1000]
         },
         "20": {
