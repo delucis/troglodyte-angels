@@ -31,6 +31,15 @@
           "amplitude": [0, 2000]
         }
       }
+    },
+    {
+      "name": "horn",
+      "cues": {
+        "6": {
+          "frequency": [360, 50],
+          "amplitude": [1, 150, 0, 2000]
+        }
+      }
     }
   ]
 }
