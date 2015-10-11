@@ -3,6 +3,7 @@ var playButton = document.querySelector('#playNext');
 var stopButton = document.querySelector('#stopButton');
 var gainSlider = document.querySelector('#gainSlider');
 var nextCueNum = document.querySelector('#nextCue');
+var currentCueNum = document.querySelector('#currentCue');
 var incCueButton = document.querySelector('#incrementNextCue');
 var decCueButton = document.querySelector('#decrementNextCue');
 // get volume slider’s current value
@@ -51,6 +52,7 @@ function playNext() {
     };
   }
   gainChange(1);
+  setCurrentCue();
   if (stopButton.disabled == true) {
     stopButton.disabled = false;
   }
@@ -75,6 +77,11 @@ function gainChange(newLevel, time) {
     oscGainNode.gain.setValueAtTime(oscGainNodeVal, audioContext.currentTime);
     oscGainNode.gain.linearRampToValueAtTime(newLevel, audioContext.currentTime + time);
   }
+}
+
+function setCurrentCue() {
+  currentCueNum.innerHTML = nextCue;
+  cueIncrement();
 }
 
 function cueIncrement() {
