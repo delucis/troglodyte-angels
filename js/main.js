@@ -24,6 +24,7 @@ var oscGainNodeVal = oscGainNode.gain.value;
 // declare empty initial oscillator variables
 var oscillator = null;
 var oscillatorState = 0;
+var oscillatorFreqVal = 0;
 
 // set up instruments system
 var currentInstrument = 0;
@@ -126,6 +127,21 @@ function gainChange(newLevel, time) {
     oscGainNodeVal = oscGainNode.gain.value;
     oscGainNode.gain.setValueAtTime(oscGainNodeVal, audioContext.currentTime);
     oscGainNode.gain.linearRampToValueAtTime(newLevel, audioContext.currentTime + time);
+  }
+}
+
+function freqChange(newFreq, time) {
+  if (newFreq === undefined) {
+    throw "freqChange() needs at least one argument";
+  }
+  if (time === undefined) {
+    time = 0.05;
+  }
+  if (oscillator) {
+    oscillator.frequency.cancelScheduledValues(audioContext.currentTime);
+    oscillatorFreqVal = oscillator.frequency.value;
+    oscillator.frequency.setValueAtTime(oscillatorFreqVal, audioContext.currentTime);
+    oscillator.frequency.linearRampToValueAtTime(newFreq, audioContext.currentTime + time);
   }
 }
 
