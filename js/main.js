@@ -8,6 +8,7 @@ var gainSliderVal = gainSlider.value;
 var audioContext = new AudioContext();
 var masterGainNode = audioContext.createGain();
 var masterGainVal = gainSliderVal * gainSliderVal;
+var tempVal = masterGainNode.gain.value;
 var oscGain = audioContext.createGain();
 var oscillator = audioContext.createOscillator();
 var oscillatorState = 0;
@@ -71,6 +72,9 @@ function updateNextCue() {
 
 function adjustGain() {
   gainSliderVal = gainSlider.value;
-  masterGainNode.gain.linearRampToValueAtTime(gainSliderVal * gainSliderVal, audioContext.currentTime + 0.1);
+  masterGainNode.gain.cancelScheduledValues(audioContext.currentTime);
+  tempVal = masterGainNode.gain.value;
+  masterGainNode.gain.setValueAtTime(tempVal, audioContext.currentTime);
+  masterGainNode.gain.linearRampToValueAtTime(gainSliderVal * gainSliderVal, audioContext.currentTime + 0.03);
   masterGainVal = gainSliderVal * gainSliderVal;
 }
