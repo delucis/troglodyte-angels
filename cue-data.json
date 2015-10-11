@@ -1,0 +1,42 @@
+{
+  "instruments": [
+    {
+      "name": "flute",
+      "cues": [
+        {
+          "bar": 7,
+          "frequency": [800, 5],
+          "amplitude": [1, 1000, 0, 3000, 1, 1000, 0, 3000]
+        },
+        {
+          "bar": 12,
+          "frequency": [600, 5],
+          "amplitude": [1, 4000]
+        },
+        {
+          "bar": 22,
+          "amplitude": [0, 3000]
+        }
+      ]
+    },
+    {
+      "name": "clarinet",
+      "cues": [
+        {
+          "bar": 7,
+          "frequency": [1200, 5],
+          "amplitude": [1, 500, 0, 50, 1, 1000, 0, 50]
+        },
+        {
+          "bar": 15,
+          "frequency": [600, 5, 700, 6000],
+          "amplitude": [1, 1000]
+        },
+        {
+          "bar": 20,
+          "amplitude": [0, 2000]
+        }
+      ]
+    }
+  ]
+}
