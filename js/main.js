@@ -1,4 +1,5 @@
 // collect UI elements as variables
+var instrumentsMenu = document.querySelector('#instrumentSelect');
 var playButton = document.querySelector('#playNext');
 var stopButton = document.querySelector('#stopButton');
 var gainSlider = document.querySelector('#gainSlider');
@@ -56,12 +57,18 @@ function playNext() {
   if (stopButton.disabled == true) {
     stopButton.disabled = false;
   }
+  if (instrumentsMenu.disabled == false) {
+    instrumentsMenu.disabled = true;
+  }
 }
 
 function mute() {
   gainChange(0);
   oscillator.stop(audioContext.currentTime + 0.06);
   stopButton.disabled = true;
+  if (instrumentsMenu.disabled == true) {
+    instrumentsMenu.disabled = false;
+  }
 }
 
 function gainChange(newLevel, time) {
