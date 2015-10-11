@@ -25,28 +25,42 @@ var oscGainNodeVal = oscGainNode.gain.value;
 var oscillator = null;
 var oscillatorState = 0;
 
+// set up instruments system
+var currentInstrument = 0;
+var cueArray = new Array();
+// set up next cue system variables
+var nextCue = 0;
+var minCue = 0;
+var maxCue = Infinity;
+
 // load cue file from JSON
 var instrumentList = new Array();
-var workCues = jQuery.getJSON("cue-data.json", function(data) {
+var cueList = new Array();
+jQuery.getJSON("cue-data.json", function(data) {
+  // build variables from JSON
   for (var i in data.instruments) {
     instrumentList.push(data.instruments[i].name);
+    cueList.push(data.instruments[i].cues);
   }
+  // remove existing <select> menu items
   while (instrumentsMenu.options.length > 0) {
     instrumentsMenu.remove(instrumentsMenu.options.length - 1);
   }
+  // add new <select> menu items
   for (i = 0; i < instrumentList.length; i++) {
     var opt = document.createElement("option");
     opt.value = i;
     opt.text = instrumentList[i];
     instrumentsMenu.add(opt, null)
   }
+  // select first option by defauly
+  instrumentsMenu.selectedIndex = 0;
+  // initialise default cueArray
+  loadInstrumentCues(0);
 });
 
-// set up next cue system variables
-var nextCue = nextCueNum.valueAsNumber;
-var minCue = 1;
-var maxCue = Infinity;
 // associate functions with UI actions
+instrumentsMenu.onchange = loadInstrumentCues;
 playButton.onmousedown = playNext;
 stopButton.onmousedown = mute;
 incCueButton.onmousedown = cueIncrement;
@@ -57,6 +71,17 @@ gainSlider.oninput = adjustGain;
 // = = = = = = = = = = //
 //  F U N C T I O N S  //
 // = = = = = = = = = = //
+function loadInstrumentCues(instrumentIndex) {
+  if (typeof(instrumentIndex) !== "number") {
+    currentInstrument = instrumentsMenu.selectedIndex;
+  } else {
+    currentInstrument = instrumentIndex;
+  }
+  cueArray = Object.keys(cueList[currentInstrument]);
+  maxCue = cueArray.length - 1;
+  nextCueNum.value = cueArray[minCue];
+}
+
 function playNext() {
   if (oscillatorState === 0) {
     oscillator = audioContext.createOscillator();
@@ -105,24 +130,27 @@ function gainChange(newLevel, time) {
 }
 
 function setCurrentCue() {
-  currentCueNum.innerHTML = nextCue;
+  currentCueNum.innerHTML = cueArray[nextCue];
   cueIncrement();
 }
 
 function cueIncrement() {
   if (nextCue < maxCue) {
-    nextCueNum.stepUp(1);
-    nextCue = nextCueNum.valueAsNumber;
+    nextCue++;
+    nextCueNum.value = cueArray[nextCue];
   }
 }
 function cueDecrement() {
   if (nextCue > minCue) {
-    nextCueNum.stepDown(1);
-    nextCue = nextCueNum.valueAsNumber;
+    nextCue--;
+    nextCueNum.value = cueArray[nextCue];
   }
 }
 function updateNextCue() {
-  nextCue = nextCueNum.valueAsNumber;
+  if (cueArray.indexOf(nextCueNum.value) >= 0) {
+    nextCue = cueArray.indexOf(nextCueNum.value);
+  } else {
+  }
 }
 
 function adjustGain() {
