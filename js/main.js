@@ -107,6 +107,7 @@ function playNext() {
 function mute() {
   gainChange(0);
   oscillator.stop(audioContext.currentTime + 0.06);
+  setCurrentCue(0);
   stopButton.disabled = true;
   instrumentsMenu.disabled = false;
 }
@@ -141,9 +142,13 @@ function freqChange(newFreq, time) {
   }
 }
 
-function setCurrentCue() {
-  currentCueNum.innerHTML = cueArray[nextCue];
-  cueIncrement();
+function setCurrentCue(val) {
+  if (val === 0) {
+    currentCueNum.innerHTML = "n/a";
+  } else {
+    currentCueNum.innerHTML = cueArray[nextCue];
+    cueIncrement();
+  }
 }
 
 function cueIncrement() {
