@@ -194,3 +194,13 @@ function adjustGain() {
   masterGainNode.gain.setValueAtTime(masterGainNodeVal, audioContext.currentTime);
   masterGainNode.gain.linearRampToValueAtTime(gainSliderVal * gainSliderVal, audioContext.currentTime + 0.03);
 }
+
+function insertErrorAlert() {
+  jQuery("#firstFormGroup").before(
+  '<div class="alert alert-danger alert-dismissable fade in" role="alert">' +
+  '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+  '<span aria-hidden="true">&times;</span>' +
+  '</button>' +
+  '<strong>Error:</strong> Could not load cue data' +
+  '</div>');
+}
