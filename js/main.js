@@ -155,12 +155,14 @@ function cueIncrement() {
     nextCue++;
     nextCueNum.value = cueArray[nextCue];
   }
+  cueIncDecEnabler();
 }
 function cueDecrement() {
   if (nextCue > minCue) {
     nextCue--;
     nextCueNum.value = cueArray[nextCue];
   }
+  cueIncDecEnabler();
 }
 function updateNextCue() {
   if (cueArray.indexOf(nextCueNum.value) >= 0) {
