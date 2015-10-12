@@ -95,7 +95,7 @@ function playNext() {
   oscInit();
   cueData = instrumentCues[cueArray[nextCue]];
   if (cueData.frequency) {
-    freqChange(cueData.frequency[0], cueData.frequency[1] / 1000);
+    freqEnvelope(cueData.frequency);
   }
   if (cueData.amplitude) {
     gainEnvelope(cueData.amplitude);
@@ -153,18 +153,21 @@ function gainEnvelope(gainPairs) {
   }
 }
 
-function freqChange(newFreq, time) {
-  if (newFreq === undefined) {
-    throw "freqChange() needs at least one argument";
-  }
-  if (time === undefined) {
-    time = 0.05;
+function freqEnvelope(freqPairs) {
+  if (freqPairs === undefined) {
+    throw "freqEnvelope() needs an argument";
   }
   if (oscillator) {
-    oscillator.frequency.cancelScheduledValues(audioContext.currentTime);
+    now = audioContext.currentTime;
+    oscillator.frequency.cancelScheduledValues(now);
     oscillatorFreqVal = oscillator.frequency.value;
-    oscillator.frequency.setValueAtTime(oscillatorFreqVal, audioContext.currentTime);
-    oscillator.frequency.linearRampToValueAtTime(newFreq, audioContext.currentTime + time);
+    oscillator.frequency.setValueAtTime(oscillatorFreqVal, now);
+    var rampTime = 0;
+    for (i=0; i<(freqPairs.length/2); i++) {
+      rampTime = rampTime + (freqPairs[2*i+1]/1000);
+      console.log('freq ramp', rampTime);
+      oscillator.frequency.linearRampToValueAtTime(freqPairs[2*i], now + rampTime);
+    }
   }
 }
 
