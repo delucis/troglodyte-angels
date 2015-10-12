@@ -113,6 +113,7 @@ function mute() {
   gainEnvelope([0, 50]);
   oscillator.stop(audioContext.currentTime + 0.06);
   setCurrentCue(0);
+  playButton.disabled = false;
   stopButton.disabled = true;
   instrumentsMenu.disabled = false;
 }
@@ -211,6 +212,7 @@ function cueIncDecEnabler() {
   }
   if (nextCue < maxCue) {
     incCueButton.disabled = false;
+    playButton.disabled = false;
   }
 }
 
