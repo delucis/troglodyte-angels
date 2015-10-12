@@ -98,7 +98,7 @@ function playNext() {
     freqChange(cueData.frequency[0], cueData.frequency[1] / 1000);
   }
   if (cueData.amplitude) {
-    gainChange(cueData.amplitude[0], cueData.amplitude[1] / 1000);
+    gainEnvelope(cueData.amplitude);
   }
   // set current cue display and increment next cue
   setCurrentCue();
@@ -107,7 +107,7 @@ function playNext() {
 }
 
 function mute() {
-  gainChange(0);
+  gainEnvelope([0, 50]);
   oscillator.stop(audioContext.currentTime + 0.06);
   setCurrentCue(0);
   stopButton.disabled = true;
@@ -135,18 +135,21 @@ function oscInit(freq, type) {
   }
 }
 
-function gainChange(newLevel, time) {
-  if (newLevel === undefined) {
-    throw "gainChange() needs at least one argument";
-  }
-  if (time === undefined) {
-    time = 0.05;
+function gainEnvelope(gainPairs) {
+  if (gainPairs === undefined) {
+    throw "gainEnvelope() needs an argument";
   }
   if (oscGainNode) {
-    oscGainNode.gain.cancelScheduledValues(audioContext.currentTime);
+    now = audioContext.currentTime;
+    oscGainNode.gain.cancelScheduledValues(now);
     oscGainNodeVal = oscGainNode.gain.value;
-    oscGainNode.gain.setValueAtTime(oscGainNodeVal, audioContext.currentTime);
-    oscGainNode.gain.linearRampToValueAtTime(newLevel, audioContext.currentTime + time);
+    oscGainNode.gain.setValueAtTime(oscGainNodeVal, now);
+    var rampTime = 0;
+    for (i=0; i<(gainPairs.length/2); i++) {
+      rampTime = rampTime + (gainPairs[2*i+1]/1000);
+      console.log('gain ramp:', rampTime);
+      oscGainNode.gain.linearRampToValueAtTime(gainPairs[2*i], now + rampTime);
+    }
   }
 }
 
