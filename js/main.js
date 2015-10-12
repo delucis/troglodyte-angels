@@ -83,6 +83,7 @@ function loadInstrumentCues(instrumentIndex) {
   } else {
     currentInstrument = instrumentIndex;
   }
+  editLocalStorage("instrumentPick", currentInstrument);
   instrumentCues = cueList[currentInstrument];
   cueArray = Object.keys(instrumentCues);
   maxCue = cueArray.length - 1;
