@@ -93,7 +93,13 @@ function loadInstrumentCues(instrumentIndex) {
 
 function playNext() {
   oscInit();
-  gainChange(1);
+  cueData = instrumentCues[cueArray[nextCue]];
+  if (cueData.frequency) {
+    freqChange(cueData.frequency[0], cueData.frequency[1] / 1000);
+  }
+  if (cueData.amplitude) {
+    gainChange(cueData.amplitude[0], cueData.amplitude[1] / 1000);
+  }
   // set current cue display and increment next cue
   setCurrentCue();
   stopButton.disabled = false;
