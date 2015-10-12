@@ -233,3 +233,18 @@ function insertErrorAlert(string) {
   '<strong>Error:</strong> ' + string +
   '</div>');
 }
+
+function closestCue(target) {
+  if (!(cueArray) || cueArray.length == 0)
+    return null;
+  if (cueArray.length == 1)
+    return 0;
+  for (var i=1; i<cueArray.length; i++) {
+    if (cueArray[i] > target) {
+      var p = cueArray[i-1];
+      var c = cueArray[i]
+      return Math.abs( p-target ) < Math.abs( c-target ) ? i-1 : i;
+    }
+  }
+  return cueArray.length-1;
+}
