@@ -55,10 +55,13 @@ jQuery.getJSON("cue-data.json", function(data) {
     opt.text = instrumentList[i];
     instrumentsMenu.add(opt, null)
   }
-  // select first option by default
-  instrumentsMenu.selectedIndex = 0;
-  // initialise default cueArray
-  loadInstrumentCues(0);
+  if (localStorage.instrumentPick) {
+    instrumentsMenu.selectedIndex = Number(localStorage.instrumentPick);
+    loadInstrumentCues(Number(localStorage.instrumentPick));
+  } else {
+    // initialise default cueArray
+    loadInstrumentCues(0);
+  }
 })
   // display error alert if JSON load fails
   .fail(function() {
