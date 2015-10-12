@@ -251,3 +251,12 @@ function closestCue(target) {
   }
   return cueArray.length-1;
 }
+
+function editLocalStorage(key, value) {
+  if (key === undefined || value === undefined) {
+    return;
+  }
+  if (typeof(Storage) !== "undefined") {
+      localStorage.setItem(key, value);
+  }
+}
