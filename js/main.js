@@ -71,7 +71,7 @@ playButton.onmousedown = playNext;
 stopButton.onmousedown = mute;
 incCueButton.onmousedown = cueIncrement;
 decCueButton.onmousedown = cueDecrement;
-nextCueNum.oninput = updateNextCue;
+nextCueNum.onblur = updateNextCue;
 gainSlider.oninput = adjustGain;
 
 // = = = = = = = = = = //
