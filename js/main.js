@@ -209,6 +209,7 @@ function cueDecrement() {
 function updateNextCue() {
   nextCue = closestCue(nextCueNum.valueAsNumber);
   nextCueNum.value = cueArray[nextCue];
+  cueIncDecEnabler();
 }
 function cueIncDecEnabler() {
   if (nextCue <= minCue) {
