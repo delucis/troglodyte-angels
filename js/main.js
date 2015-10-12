@@ -90,18 +90,7 @@ function loadInstrumentCues(instrumentIndex) {
 }
 
 function playNext() {
-  if (oscillatorState === 0) {
-    oscillator = audioContext.createOscillator();
-    oscillator.type = 'sine';
-    oscillator.frequency.value = 1000;
-    oscillator.connect(oscGainNode);
-    oscillatorState = 1;
-    oscillator.start(0);
-    oscillator.onended = function() {
-      oscillatorState = 0;
-      oscillator.disconnect();
-    };
-  }
+  oscInit();
   gainChange(1);
   // set current cue display and increment next cue
   setCurrentCue();
@@ -115,6 +104,27 @@ function mute() {
   setCurrentCue(0);
   stopButton.disabled = true;
   instrumentsMenu.disabled = false;
+}
+
+function oscInit(freq, type) {
+  if (freq === undefined) {
+    freq = 880;
+  }
+  if (type === undefined) {
+    type = 'sine';
+  }
+  if (oscillatorState === 0) {
+    oscillator = audioContext.createOscillator();
+    oscillator.type = type;
+    oscillator.frequency.value = freq;
+    oscillator.connect(oscGainNode);
+    oscillatorState = 1;
+    oscillator.start(0);
+    oscillator.onended = function() {
+      oscillatorState = 0;
+      oscillator.disconnect();
+    };
+  }
 }
 
 function gainChange(newLevel, time) {
