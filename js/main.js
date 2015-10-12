@@ -100,6 +100,9 @@ function playNext() {
   if (cueData.amplitude) {
     gainEnvelope(cueData.amplitude);
   }
+  if (nextCue === maxCue) {
+    playButton.disabled = true;
+  }
   // set current cue display and increment next cue
   setCurrentCue();
   stopButton.disabled = false;
