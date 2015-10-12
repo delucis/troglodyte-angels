@@ -193,7 +193,7 @@ function cueDecrement() {
   cueIncDecEnabler();
 }
 function updateNextCue() {
-  nextCue = closestCue(nextCueNum.value);
+  nextCue = closestCue(nextCueNum.valueAsNumber);
   nextCueNum.value = cueArray[nextCue];
 }
 function cueIncDecEnabler() {
