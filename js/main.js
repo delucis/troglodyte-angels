@@ -55,7 +55,7 @@ jQuery.getJSON("cue-data.json", function(data) {
     opt.text = instrumentList[i];
     instrumentsMenu.add(opt, null)
   }
-  // select first option by defauly
+  // select first option by default
   instrumentsMenu.selectedIndex = 0;
   // initialise default cueArray
   loadInstrumentCues(0);
