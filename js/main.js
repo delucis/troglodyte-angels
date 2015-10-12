@@ -37,6 +37,7 @@ var maxCue = Infinity;
 // load cue file from JSON
 var instrumentList = new Array();
 var cueList = new Array();
+var instrumentCues = '';
 jQuery.getJSON("cue-data.json", function(data) {
   // build variables from JSON
   for (var i in data.instruments) {
@@ -82,7 +83,8 @@ function loadInstrumentCues(instrumentIndex) {
   } else {
     currentInstrument = instrumentIndex;
   }
-  cueArray = Object.keys(cueList[currentInstrument]);
+  instrumentCues = cueList[currentInstrument];
+  cueArray = Object.keys(instrumentCues);
   maxCue = cueArray.length - 1;
   nextCue = minCue;
   nextCueNum.value = cueArray[nextCue];
