@@ -26,6 +26,12 @@ var oscillator = null;
 var oscillatorState = 0;
 var oscillatorFreqVal = 0;
 
+// if volume slider previously set, reload that value
+if (localStorage.masterVol) {
+  gainSlider.value = Number(localStorage.masterVol);
+  adjustGain();
+}
+
 // set up instruments system
 var currentInstrument = 0;
 var cueArray = new Array();
