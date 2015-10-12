@@ -218,6 +218,7 @@ function cueIncDecEnabler() {
 
 function adjustGain() {
   gainSliderVal = gainSlider.value;
+  editLocalStorage("masterVol", gainSliderVal);
   masterGainNode.gain.cancelScheduledValues(audioContext.currentTime);
   masterGainNodeVal = masterGainNode.gain.value;
   masterGainNode.gain.setValueAtTime(masterGainNodeVal, audioContext.currentTime);
