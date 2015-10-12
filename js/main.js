@@ -193,10 +193,8 @@ function cueDecrement() {
   cueIncDecEnabler();
 }
 function updateNextCue() {
-  if (cueArray.indexOf(nextCueNum.value) >= 0) {
-    nextCue = cueArray.indexOf(nextCueNum.value);
-  } else {
-  }
+  nextCue = closestCue(nextCueNum.value);
+  nextCueNum.value = cueArray[nextCue];
 }
 function cueIncDecEnabler() {
   if (nextCue <= minCue) {
