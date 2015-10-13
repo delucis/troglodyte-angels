@@ -1,9 +1,9 @@
 prose:
-	ignore:
-    	- /css
-        - /js
-        - /fonts
-        - *.png
-        - browserconfig.xml
-        - favicon.ico
-        - index.html
+  ignore:
+    - /css
+    - /js
+    - /fonts
+    - *.png
+    - browserconfig.xml
+    - favicon.ico
+    - index.html
