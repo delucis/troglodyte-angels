@@ -1,0 +1,69 @@
+instruments:
+  -
+    name: flute
+    cues:
+      7:
+        frequency:
+          - 800
+          - 50
+        amplitude:
+          - 1
+          - 1000
+          - 0
+          - 3000
+          - 1
+          - 1000
+          - 0
+          - 3000
+      12:
+        frequency:
+          - 600
+          - 50
+        amplitude:
+          - 1
+          - 4000
+      22:
+        amplitude:
+          - 0
+          - 3000
+  -
+    name: clarinet
+    cues:
+      7:
+        frequency:
+          - 1200
+          - 50
+        amplitude:
+          - 1
+          - 500
+          - 0
+          - 50
+          - 1
+          - 1000
+          - 0
+          - 50
+      15:
+        frequency:
+          - 600
+          - 50
+          - 700
+          - 6000
+        amplitude:
+          - 1
+          - 1000
+      20:
+        amplitude:
+          - 0
+          - 2000
+  -
+    name: horn
+    cues:
+      6:
+        frequency:
+          - 360
+          - 50
+        amplitude:
+          - 1
+          - 150
+          - 0
+          - 2000
