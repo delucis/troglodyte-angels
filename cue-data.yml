@@ -5,8 +5,10 @@ instruments:
       7:
         frequency:
           - 1248
-          - 40
+          - 20
         amplitude:
+          - 0
+          - 1
           - 0.3
           - 40
           - 0
