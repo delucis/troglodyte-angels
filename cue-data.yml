@@ -10,11 +10,11 @@ instruments:
           - 1
           - 1000
           - 0
-          - 3000
+          - 2000
           - 1
           - 1000
           - 0
-          - 3000
+          - 2000
       12:
         frequency:
           - 600
@@ -26,6 +26,8 @@ instruments:
         amplitude:
           - 0
           - 3000
+      23:
+        
   -
     name: clarinet
     cues:
