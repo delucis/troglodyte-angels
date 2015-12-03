@@ -5,7 +5,7 @@ instruments:
       7:
         frequency:
           - 1248
-          - 1
+          - 0
         amplitude:
           - 0.3
           - 40
@@ -18,7 +18,7 @@ instruments:
       12:
         frequency:
           - 600
-          - 50
+          - 0
         amplitude:
           - 1
           - 4000
@@ -26,15 +26,13 @@ instruments:
         amplitude:
           - 0
           - 3000
-      23:
-        
   -
     name: clarinet
     cues:
       7:
         frequency:
           - 1200
-          - 50
+          - 0
         amplitude:
           - 1
           - 500
@@ -47,7 +45,7 @@ instruments:
       15:
         frequency:
           - 600
-          - 50
+          - 0
           - 700
           - 6000
         amplitude:
@@ -63,7 +61,7 @@ instruments:
       6:
         frequency:
           - 360
-          - 50
+          - 0
         amplitude:
           - 1
           - 150
