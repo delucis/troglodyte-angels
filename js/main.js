@@ -163,6 +163,7 @@ function gainEnvelope(gainPairs) {
       rampTime = rampTime + (gainPairs[2*i+1]/1000);
       oscGainNode.gain.linearRampToValueAtTime(gainPairs[2*i], now + rampTime);
     }
+    console.log("gainEnvelope(): " + gainPairs);
   }
 }
 
@@ -180,6 +181,7 @@ function freqEnvelope(freqPairs) {
       rampTime = rampTime + (freqPairs[2*i+1]/1000);
       oscillator.frequency.linearRampToValueAtTime(freqPairs[2*i], now + rampTime);
     }
+    console.log("freqEnvelope(): " + freqPairs);
   }
 }
 
