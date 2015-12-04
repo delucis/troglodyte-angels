@@ -2,59 +2,87 @@ instruments:
   -
     name: flute
     cues:
-      7:
+      35:
+        frequency:
+          - 1447
+          - 0
+        amplitude:
+          - 0.3
+          - 5500
+      49:
+        frequency:
+          - 1447
+          - 0
+          - 1236
+          - 12500
+        amplitude:
+          - 0
+          - 12500
+      82:
+        frequency:
+          - 1447
+          - 0
+        amplitude:
+          - 0.3
+          - 500
+          - 0
+          - 2500
+      133:
+        amplitude:
+          - 1
+          - 6875
+      150:
+        amplitude:
+          - 1
+          - 0
+          - 1
+          - 7500
+          - 0
+          - 18250
+  -
+    name: clarinet
+    cues:
+      35:
+        frequency:
+          - 1450
+          - 0
+        amplitude:
+          - 0.5
+          - 5500
+      49:
+        frequency:
+          - 1450
+          - 0
+        amplitude:
+          - 0
+          - 8500
+      82:
         frequency:
           - 1248
           - 0
         amplitude:
-          - 0.3
-          - 40
-          - 0
-          - 2000
-          - 0.3
-          - 40
-          - 0
-          - 2000
-      12:
-        frequency:
-          - 600
-          - 0
-        amplitude:
-          - 1
-          - 4000
-      22:
-        amplitude:
-          - 0
-          - 3000
-  -
-    name: clarinet
-    cues:
-      7:
-        frequency:
-          - 1200
-          - 0
-        amplitude:
-          - 1
+          - 0.5
           - 500
-          - 0
-          - 50
-          - 1
-          - 1000
-          - 0
-          - 50
-      15:
-        frequency:
-          - 600
-          - 0
-          - 700
-          - 6000
-        amplitude:
-          - 1
-          - 1000
-      20:
-        amplitude:
-          - 0
+          - 0.5
           - 2000
+          - 0
+          - 3500
+      121:
+        amplitude:
+          - 0
+          - 0
+          - 0
+          - 20000
+          - 1
+          - 20625
+      150:
+        amplitude:
+          - 1
+          - 0
+          - 1
+          - 5625
+          - 0
+          - 12625
   -
     name: horn
     cues:
