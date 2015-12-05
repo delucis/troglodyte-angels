@@ -20,6 +20,9 @@
 .modal-dialog {
   z-index: 9999;
 }
+#nextCue {
+  text-align: center;
+}
 
 /* ==========================================================================
    Range Slider styles
