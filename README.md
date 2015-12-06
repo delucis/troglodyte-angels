@@ -26,3 +26,10 @@ Navigate to <http://localhost:4000>
 ```bash
 open http://localhost:4000/
 ```
+
+## Building for Deployment
+
+The following will compile the necessary files for deployment to the subfolder `/tacb`:
+```bash
+grunt build
+```
