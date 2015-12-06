@@ -47,5 +47,5 @@ module.exports = function(grunt) {
     }
   });
   require('load-grunt-tasks')(grunt);
-  grunt.registerTask('default', ['yaml', 'json-minify', 'uglify', 'watch']);
+  grunt.registerTask('default', 'Convert YAML to minified JSON, uglify JS, and watch for changes.', ['yaml', 'json-minify', 'uglify', 'watch']);
 };
