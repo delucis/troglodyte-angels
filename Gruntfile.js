@@ -48,6 +48,15 @@ module.exports = function(grunt) {
         src: [ 'tacb' ]
       },
     },
+    connect: {
+      server: {
+        options: {
+          port: 4000,
+          base: '',
+          hostname: '*'
+        }
+      }
+    },
     watch: {
       cues: {
         files: ['cue-data.yml'],
@@ -60,6 +69,6 @@ module.exports = function(grunt) {
     }
   });
   require('load-grunt-tasks')(grunt);
-  grunt.registerTask('default', 'Convert YAML to minified JSON, uglify JS, and watch for changes.', ['yaml', 'json-minify', 'uglify', 'watch']);
+  grunt.registerTask('default', 'Convert YAML to minified JSON, uglify JS, serve to localhost:4000, and watch for changes.', ['yaml', 'json-minify', 'uglify', 'connect', 'watch']);
   grunt.registerTask('build', 'Clean & (re)build distribution-ready project in /tacb', ['yaml', 'json-minify', 'uglify', 'clean', 'copy']);
 };
