@@ -19,7 +19,7 @@ The current performance version can be found at <http://claraiannotta.com/tacb/>
   ```bash
   grunt
   ```
-4. Navigate to <http://localhost:4000>
+4. Navigate to <http://localhost:4000>    
   ```bash
   open http://localhost:4000/
   ```
