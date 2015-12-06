@@ -35,6 +35,19 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      build: {
+        cwd: '',
+        src: [ 'index.html', 'index.appcache', '*.ico', 'cue-data.json', 'browserconfig.xml', 'js/app.js', 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', 'js/vendor/jquery-1.11.2.min.js', 'fonts/**', 'css/bootstrap.min.css', 'css/bootstrap-cyborg.min.css', 'css/main.css' ],
+        dest: 'tacb',
+        expand: true
+      }
+    },
+    clean: {
+      build: {
+        src: [ 'tacb' ]
+      },
+    },
     watch: {
       cues: {
         files: ['cue-data.yml'],
@@ -48,4 +61,5 @@ module.exports = function(grunt) {
   });
   require('load-grunt-tasks')(grunt);
   grunt.registerTask('default', 'Convert YAML to minified JSON, uglify JS, and watch for changes.', ['yaml', 'json-minify', 'uglify', 'watch']);
+  grunt.registerTask('build', 'Clean & (re)build distribution-ready project in /tacb', ['yaml', 'json-minify', 'uglify', 'clean', 'copy']);
 };
