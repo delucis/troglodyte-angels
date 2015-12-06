@@ -6,11 +6,9 @@ cue-data.json
 css/bootstrap.min.css
 css/bootstrap-cyborg.min.css
 css/main.css
-js/main.js
+js/app.js
 js/vendor/modernizr-2.8.3-respond-1.4.2.min.js
 js/vendor/jquery-1.11.2.min.js
-js/vendor/bootstrap.min.js
-js/vendor/AudioContextMonkeyPatch.js
 fonts/glyphicons-halflings-regular.ttf
 
 NETWORK:
