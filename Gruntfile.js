@@ -41,7 +41,7 @@ module.exports = function(grunt) {
         tasks: ['yaml', 'json-minify']
       },
       scripts: {
-        files: ['js/*.js'],
+        files: ['js/main.js', 'js/vendor/*.js'],
         tasks: ['uglify']
       }
     }
