@@ -15,7 +15,11 @@ The current performance version can be found at <http://claraiannotta.com/tacb/>
   cd troglodyte-angels
   npm install
   ```
-3. Watch for changes that need compiling:    
+3. Serve the app locally & watch for changes:    
   ```bash
   grunt
+  ```
+4. Navigate to <http://localhost:4000>
+  ```bash
+  open http://localhost:4000/
   ```
