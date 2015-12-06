@@ -28,13 +28,24 @@ module.exports = function(grunt) {
         files: 'cue-data.json'
       }
     },
+    uglify: {
+      js: {
+        files: {
+          'js/app.js': ['js/vendor/bootstrap.min.js', 'js/vendor/AudioContextMonkeyPatch.js', 'js/main.js']
+        }
+      }
+    },
     watch: {
       cues: {
         files: ['cue-data.yml'],
         tasks: ['yaml', 'json-minify']
+      },
+      scripts: {
+        files: ['js/*.js'],
+        tasks: ['uglify']
       }
     }
   });
   require('load-grunt-tasks')(grunt);
-  grunt.registerTask('default', ['yaml', 'json-minify', 'watch']);
+  grunt.registerTask('default', ['yaml', 'json-minify', 'uglify', 'watch']);
 };
