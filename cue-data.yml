@@ -1,6 +1,6 @@
 instruments:
   -
-    name: flute
+    name: flute/flûte
     cues:
       35:
         frequency: [1447, 0]
@@ -16,7 +16,7 @@ instruments:
       150:
         amplitude: [1, 0, 1, 7500, 0, 18250]
   -
-    name: clarinet
+    name: clarinet/clarinette
     cues:
       35:
         frequency: [1450, 0]
@@ -32,7 +32,7 @@ instruments:
       150:
         amplitude: [1, 0, 1, 5625, 0, 12625]
   -
-    name: horn
+    name: horn/cor
     cues:
       24:
         frequency: [1248, 0]
