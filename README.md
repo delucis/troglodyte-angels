@@ -17,9 +17,9 @@ cd troglodyte-angels
 npm install
 ```
 
-Serve the app locally & watch for changes:    
+Serve the app locally & watch for changes (alias for `grunt`):    
 ```bash
-grunt
+npm run serve
 ```
 
 Navigate to <http://localhost:4000>    
@@ -29,7 +29,7 @@ open http://localhost:4000/
 
 ## Building for Deployment
 
-The following will compile the necessary files for deployment to the subfolder `/tacb`:
+The following will compile the necessary files for deployment to the subfolder `/tacb` (alias for `grunt serve`):
 ```bash
-grunt build
+npm run build
 ```
