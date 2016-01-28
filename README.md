@@ -17,14 +17,9 @@ cd troglodyte-angels
 npm install
 ```
 
-Serve the app locally & watch for changes (alias for `grunt`):    
+Serve the app [locally](http://localhost:4000) & watch for changes (alias for `grunt`):    
 ```bash
 npm run serve
-```
-
-Navigate to <http://localhost:4000>    
-```bash
-open http://localhost:4000/
 ```
 
 ## Building for Deployment
