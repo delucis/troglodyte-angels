@@ -69,6 +69,14 @@ module.exports = function(grunt) {
     }
   });
   require('load-grunt-tasks')(grunt);
-  grunt.registerTask('default', 'Convert YAML to minified JSON, uglify JS, serve to localhost:4000, and watch for changes.', ['yaml', 'json-minify', 'uglify', 'connect', 'watch']);
-  grunt.registerTask('build', 'Clean & (re)build distribution-ready project in /tacb', ['yaml', 'json-minify', 'uglify', 'clean', 'copy']);
+  grunt.registerTask(
+    'default',
+    'Convert YAML to minified JSON, uglify JS, serve to localhost:4000, and watch for changes.',
+    ['yaml', 'json-minify', 'uglify', 'connect', 'watch']
+  );
+  grunt.registerTask(
+    'build',
+    'Clean & (re)build distribution-ready project in /tacb',
+    ['yaml', 'json-minify', 'uglify', 'clean', 'copy']
+  );
 };
