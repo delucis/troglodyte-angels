@@ -138,7 +138,7 @@ instruments:
         amplitude: [0, 0, 0, 12000, 0.3, 20625]
       133:
         frequency: [10300, 0]
-        amplitude: [0, 5000]
+        amplitude: [1, 7188, 1, 3600, 0, 9000]
   -
     name: perc. 2
     cues:
@@ -153,7 +153,7 @@ instruments:
         amplitude: [0.5, 500, 0.5, 2000, 0, 2500]
       118:
         frequency: [10150, 0]
-        amplitude: [0.3, 50]
+        amplitude: [0.3, 8000]
       133:
         frequency: [10150, 0]
-        amplitude: [0, 5000]
+        amplitude: [1, 7188, 1, 3900, 0, 19500]
