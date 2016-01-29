@@ -7,6 +7,7 @@ var nextCueNum = document.querySelector('#nextCue');
 var currentCueNum = document.querySelector('#currentCue');
 var incCueButton = document.querySelector('#incrementNextCue');
 var decCueButton = document.querySelector('#decrementNextCue');
+var volumeLabel = document.querySelector('#volumeLabel');
 // get volume slider’s current value
 var gainSliderVal = gainSlider.value;
 // create audio context
@@ -236,6 +237,8 @@ function adjustGain() {
   masterGainNodeVal = masterGainNode.gain.value;
   masterGainNode.gain.setValueAtTime(masterGainNodeVal, audioContext.currentTime);
   masterGainNode.gain.linearRampToValueAtTime(gainSliderVal * gainSliderVal, audioContext.currentTime + 0.03);
+  volumeLabelText = Math.round(gainSliderVal*100);
+  $(volumeLabel).text(''+volumeLabelText);
 }
 
 function insertErrorAlert(string) {
