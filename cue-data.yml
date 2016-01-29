@@ -12,8 +12,10 @@ instruments:
         frequency: [1447, 0]
         amplitude: [0.3, 500, 0, 2500]
       133:
+        frequency: [10000, 0]
         amplitude: [1, 6875]
       150:
+        frequency: [10000, 0]
         amplitude: [1, 0, 1, 7500, 0, 18250]
   -
     name: clarinet/clarinette
@@ -28,8 +30,10 @@ instruments:
         frequency: [1248, 0]
         amplitude: [0.5, 500, 0.5, 2000, 0, 3500]
       121:
+        frequency: [10200, 0]
         amplitude: [0, 0, 0, 20000, 1, 20625]
       150:
+        frequency: [10200, 0]
         amplitude: [1, 0, 1, 5625, 0, 12625]
   -
     name: horn/cor
@@ -88,10 +92,13 @@ instruments:
                     0.04763, 500, 0, 2000,
                     0.02646, 500, 0, 2000]
       126:
+        frequency: [10050, 0]
         amplitude: [0.3, 3125]
       133:
+        frequency: [10050, 0]
         amplitude: [1, 7500]
       150:
+        frequency: [10050, 0]
         amplitude: [1, 0, 1, 10000, 0, 19250]
   -
     name: trumpet/trompette
@@ -106,8 +113,14 @@ instruments:
         frequency: [1628, 0]
         amplitude: [0.5, 500, 0.5, 2000, 0, 3000]
       129:
+        frequency: [10100, 0]
+        amplitude: [0.3, 7500]
       133:
+        frequency: [10100, 0]
+        amplitude: [1, 8000]
       150:
+        frequency: [10100, 0]
+        amplitude: [1, 0, 1, 7500, 0, 10950]
   -
     name: perc. 1
     cues:
@@ -121,8 +134,10 @@ instruments:
         frequency: [1070, 0]
         amplitude: [0.7, 500, 0.7, 2000, 0, 3000]
       121:
+        frequency: [10300, 0]
         amplitude: [0, 0, 0, 12000, 0.3, 20625]
       133:
+        frequency: [10300, 0]
         amplitude: [0, 5000]
   -
     name: perc. 2
@@ -137,7 +152,8 @@ instruments:
         frequency: [1257, 0]
         amplitude: [0.5, 500, 0.5, 2000, 0, 2500]
       118:
-        frequency: [6503, 0]
+        frequency: [10150, 0]
         amplitude: [0.3, 50]
       133:
+        frequency: [10150, 0]
         amplitude: [0, 5000]
