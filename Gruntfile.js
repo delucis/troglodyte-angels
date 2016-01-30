@@ -53,10 +53,21 @@ module.exports = function(grunt) {
     },
     copy: {
       build: {
-        cwd: '',
-        src: [ 'index.html', 'index.appcache', '*.ico', 'cue-data.json', 'browserconfig.xml', 'js/app.js', 'js/vendor/jquery-1.11.2.min.js', 'fonts/**', 'css/bootstrap.min.css', 'css/bootstrap-cyborg.min.css', 'css/main.css' ],
-        dest: 'tacb',
-        expand: true
+        files: [
+          {
+            cwd: '',
+            src: [ 'index.html', 'index.appcache', '*.ico', 'cue-data.json', 'browserconfig.xml', 'js/vendor/jquery-1.11.2.min.js', 'fonts/**', 'css/bootstrap.min.css', 'css/bootstrap-cyborg.min.css', 'css/main.css' ],
+            dest: 'tacb',
+            expand: true
+          },
+          {
+            expand: true,
+            flatten: true,
+            src: ['js/builds/app.js'],
+            dest: 'tacb/js/',
+            filter: 'isFile'
+          }
+        ]
       }
     },
     clean: {
