@@ -79,7 +79,7 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 4000,
-          base: '',
+          base: 'tacb',
           hostname: '*',
           open: true
         }
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'default',
     'Convert YAML to minified JSON, uglify JS, serve to localhost:4000, and watch for changes.',
-    ['modernizr:dist', 'yaml', 'json-minify', 'uglify', 'connect', 'watch']
+    ['modernizr:dist', 'yaml', 'json-minify', 'uglify', 'clean', 'copy', 'connect', 'watch']
   );
   grunt.registerTask(
     'build',
