@@ -1,6 +1,22 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    modernizr: {
+      dist: {
+        "crawl": false,
+        "customTests": [],
+        "dest": "js/vendor/modernizr-build.js",
+        "tests": [
+          "applicationcache",
+          "webaudio",
+          "localstorage"
+        ],
+        "options": [
+          "setClasses"
+        ],
+        "uglify": true
+      }
+    },
     yaml: {
       your_target: {
         options: {
@@ -31,14 +47,14 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         files: {
-          'js/app.js': ['js/vendor/bootstrap.min.js', 'js/vendor/AudioContextMonkeyPatch.js', 'js/main.js']
+          'js/app.js': ['js/vendor/bootstrap.min.js', 'js/vendor/modernizr-build.js', 'js/vendor/AudioContextMonkeyPatch.js', 'js/main.js', 'js/feedback.js']
         }
       }
     },
     copy: {
       build: {
         cwd: '',
-        src: [ 'index.html', 'index.appcache', '*.ico', 'cue-data.json', 'browserconfig.xml', 'js/app.js', 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', 'js/vendor/jquery-1.11.2.min.js', 'fonts/**', 'css/bootstrap.min.css', 'css/bootstrap-cyborg.min.css', 'css/main.css' ],
+        src: [ 'index.html', 'index.appcache', '*.ico', 'cue-data.json', 'browserconfig.xml', 'js/app.js', 'js/vendor/jquery-1.11.2.min.js', 'fonts/**', 'css/bootstrap.min.css', 'css/bootstrap-cyborg.min.css', 'css/main.css' ],
         dest: 'tacb',
         expand: true
       }
@@ -73,11 +89,11 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'default',
     'Convert YAML to minified JSON, uglify JS, serve to localhost:4000, and watch for changes.',
-    ['yaml', 'json-minify', 'uglify', 'connect', 'watch']
+    ['modernizr:dist', 'yaml', 'json-minify', 'uglify', 'connect', 'watch']
   );
   grunt.registerTask(
     'build',
     'Clean & (re)build distribution-ready project in /tacb',
-    ['yaml', 'json-minify', 'uglify', 'clean', 'copy']
+    ['modernizr:dist', 'yaml', 'json-minify', 'uglify', 'clean', 'copy']
   );
 };
