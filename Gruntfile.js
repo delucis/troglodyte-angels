@@ -5,7 +5,7 @@ module.exports = function(grunt) {
       dist: {
         "crawl": false,
         "customTests": [],
-        "dest": "js/vendor/modernizr-build.js",
+        "dest": "js/builds/modernizr-build.js",
         "tests": [
           "applicationcache",
           "webaudio",
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         files: {
-          'js/app.js': ['js/vendor/bootstrap.min.js', 'js/vendor/modernizr-build.js', 'js/vendor/AudioContextMonkeyPatch.js', 'js/main.js', 'js/feedback.js']
+          'js/builds/app.js': ['js/vendor/bootstrap.min.js', 'js/builds/modernizr-build.js', 'js/vendor/AudioContextMonkeyPatch.js', 'js/main.js', 'js/feedback.js']
         }
       }
     },
