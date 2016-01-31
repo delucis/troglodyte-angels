@@ -121,13 +121,21 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      general: {
+        files: ['index.html', 'index.appcache', '*.ico', 'browserconfig.xml', 'js/vendor/jquery-1.11.2.min.js', 'fonts/**'],
+        tasks: ['copy:general']
+      },
       cues: {
         files: ['cue-data.yml'],
         tasks: ['yaml', 'json-minify']
       },
       scripts: {
         files: ['js/main.js', 'js/vendor/*.js'],
-        tasks: ['uglify']
+        tasks: ['uglify', 'copy:js']
+      },
+      styles: {
+        files: ['css/main.css', 'css/fonts.css', 'css/bootstrap.min.css', 'css/bootstrap-cyborg.min.css'],
+        tasks: ['cssmin', 'copy:css']
       }
     }
   });
