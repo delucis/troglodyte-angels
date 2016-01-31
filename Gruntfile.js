@@ -145,7 +145,7 @@ module.exports = function(grunt) {
       },
       cues: {
         files: ['cue-data.yml'],
-        tasks: ['yaml', 'json-minify']
+        tasks: ['yaml', 'json-minify', 'copy:cues']
       },
       scripts: {
         files: ['js/main.js', 'js/vendor/*.js'],
