@@ -24,7 +24,7 @@ npm run serve
 
 ## Building for Deployment
 
-The following will compile the necessary files for deployment to the subfolder `/tacb` (alias for `grunt serve`):
+The following will compile the necessary files for deployment to the subfolder `/tacb` (alias for `grunt build`):
 ```bash
 npm run build
 ```
