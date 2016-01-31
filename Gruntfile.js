@@ -143,11 +143,11 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'default',
     'Convert YAML to minified JSON, uglify JS, serve to localhost:4000, and watch for changes.',
-    ['modernizr:dist', 'yaml', 'json-minify', 'uglify', 'clean', 'copy', 'connect', 'watch']
+    ['modernizr:dist', 'yaml', 'json-minify', 'uglify', 'cssmin', 'clean', 'copy:general', 'copy:cues', 'copy:js', 'copy:css', 'connect', 'watch']
   );
   grunt.registerTask(
     'build',
     'Clean & (re)build distribution-ready project in /tacb',
-    ['modernizr:dist', 'yaml', 'json-minify', 'uglify', 'clean', 'copy']
+    ['modernizr:dist', 'yaml', 'json-minify', 'uglify', 'cssmin', 'clean', 'copy:general', 'copy:cues', 'copy:js', 'copy:css']
   );
 };
