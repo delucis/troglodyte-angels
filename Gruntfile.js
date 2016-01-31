@@ -51,6 +51,16 @@ module.exports = function(grunt) {
         }
       }
     },
+    cssmin: {
+      options: {
+        keepSpecialComments: 0
+      },
+      target: {
+        files: {
+          'css/builds/app.min.css': ['css/bootstrap.min.css', 'css/fonts.css', 'css/bootstrap-cyborg.min.css', 'css/main.css']
+        }
+      }
+    },
     copy: {
       build: {
         files: [
