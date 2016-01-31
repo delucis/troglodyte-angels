@@ -26,6 +26,7 @@
   },
   "scripts": {
     "serve": "grunt",
-    "build": "grunt build"
+    "build": "grunt build",
+    "deploy": "netlify deploy tacb"
   }
 }
