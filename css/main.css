@@ -1,9 +1,9 @@
+/*!
+ * main.css
+ * Chris Swithinbank for TACB
+ */
 
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
+/*! Bootstrap Tweaks */
 .navbar-right {
   float: right !important;
 }
