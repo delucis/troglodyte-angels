@@ -6,7 +6,9 @@ cue-data.json
 css/app.min.css
 js/app.js
 js/vendor/jquery-1.11.2.min.js
-fonts/glyphicons-halflings-regular.ttf
+fonts/glyphicons-halflings-regular.woff
+fonts/montserrat-400-normal.woff
+fonts/montserrat-700-normal.woff
 
 NETWORK:
 *
