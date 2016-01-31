@@ -3,9 +3,7 @@ CACHE MANIFEST
 CACHE:
 index.html
 cue-data.json
-css/bootstrap.min.css
-css/bootstrap-cyborg.min.css
-css/main.css
+css/app.min.css
 js/app.js
 js/vendor/jquery-1.11.2.min.js
 fonts/glyphicons-halflings-regular.ttf
