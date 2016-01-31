@@ -4,7 +4,7 @@ instruments:
     cues:
       35:
         frequency: [1447, 0]
-        amplitude: [0, 50, 0.3, 5500]
+        amplitude: [0, 50, 0.025, 2000, 0.1, 2000, 0.3, 1500]
       49:
         frequency: [1447, 0, 1236, 12500]
         amplitude: [0.3, 50, 0, 12500]
@@ -13,7 +13,7 @@ instruments:
         amplitude: [0, 50, 0.3, 500, 0, 2500]
       133:
         frequency: [10000, 0]
-        amplitude: [0, 50, 1, 6875]
+        amplitude: [0, 50, 0.05, 2000, 0.25, 2000, 1, 2875]
       150:
         frequency: [10000, 0]
         amplitude: [1, 50, 1, 7500, 0, 18250]
@@ -22,7 +22,7 @@ instruments:
     cues:
       35:
         frequency: [1450, 0]
-        amplitude: [0, 50, 0.5, 5500]
+        amplitude: [0, 50, 0.04, 2000, 0.166, 2000, 0.5, 1500]
       49:
         frequency: [1450, 0]
         amplitude: [0.5, 50, 0, 8500]
@@ -31,7 +31,7 @@ instruments:
         amplitude: [0, 50, 0.5, 500, 0.5, 2000, 0, 3500]
       121:
         frequency: [10200, 0]
-        amplitude: [0, 50, 0, 20000, 1, 20625]
+        amplitude: [0, 50, 0, 20000, 0.05, 5000, 0.25, 5000, 1, 10625]
       150:
         frequency: [10200, 0]
         amplitude: [1, 50, 1, 5625, 0, 12625]
@@ -144,7 +144,7 @@ instruments:
     cues:
       13:
         frequency: [1257, 0]
-        amplitude: [0, 50, 0.5, 55000]
+        amplitude: [0, 50, 0.025, 10000, 0.1, 10000, 0.5, 35000]
       47:
         frequency: [1257, 0]
         amplitude: [0.5, 50, 0.5, 6000, 0, 17000]
