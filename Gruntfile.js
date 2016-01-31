@@ -47,7 +47,13 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         files: {
-          'js/builds/app.js': ['js/vendor/bootstrap.min.js', 'js/builds/modernizr-build.js', 'js/vendor/AudioContextMonkeyPatch.js', 'js/main.js', 'js/feedback.js']
+          'js/builds/app.js': [
+            'js/vendor/bootstrap.min.js',
+            'js/builds/modernizr-build.js',
+            'js/vendor/AudioContextMonkeyPatch.js',
+            'js/main.js',
+            'js/feedback.js'
+          ]
         }
       }
     },
@@ -57,7 +63,12 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          'css/builds/app.min.css': ['css/bootstrap.min.css', 'css/fonts.css', 'css/bootstrap-cyborg.min.css', 'css/main.css']
+          'css/builds/app.min.css': [
+            'css/bootstrap.min.css',
+            'css/fonts.css',
+            'css/bootstrap-cyborg.min.css',
+            'css/main.css'
+          ]
         }
       }
     },
@@ -66,7 +77,14 @@ module.exports = function(grunt) {
         files: [
           {
             cwd: '',
-            src: [ 'index.html', 'index.appcache', '*.ico', 'browserconfig.xml', 'js/vendor/jquery-1.11.2.min.js', 'fonts/**' ],
+            src: [
+              'index.html',
+              'index.appcache',
+              '*.ico',
+              'browserconfig.xml',
+              'js/vendor/jquery-1.11.2.min.js',
+              'fonts/**'
+            ],
             dest: 'tacb',
             expand: true
           }
