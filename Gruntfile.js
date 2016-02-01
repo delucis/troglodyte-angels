@@ -171,8 +171,8 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.registerTask(
     'default',
-    'Convert YAML to minified JSON, uglify JS, serve to localhost:4000, and watch for changes.',
-    ['modernizr:dist', 'yaml', 'json-minify', 'uglify', 'cssmin', 'clean', 'copy:general', 'copy:cues', 'copy:js', 'copy:css', 'copy:icons', 'connect', 'watch']
+    'Run “grunt build”, serve to localhost:4000, and watch for changes.',
+    ['build', 'connect', 'watch']
   );
   grunt.registerTask(
     'build',
