@@ -52,7 +52,7 @@ module.exports = function(grunt) {
             'js/builds/modernizr-build.js',
             'js/vendor/AudioContextMonkeyPatch.js',
             'js/main.js',
-            'js/feedback.js'
+            'js/diagnostics.js'
           ]
         }
       }
@@ -148,7 +148,7 @@ module.exports = function(grunt) {
         tasks: ['yaml', 'json-minify', 'copy:cues']
       },
       scripts: {
-        files: ['js/main.js', 'js/vendor/*.js'],
+        files: ['js/main.js', 'js/diagnostics.js', 'js/vendor/*.js'],
         tasks: ['uglify', 'copy:js']
       },
       styles: {
