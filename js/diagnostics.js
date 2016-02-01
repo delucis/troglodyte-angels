@@ -1,4 +1,6 @@
 function featureDiagnostics(testsArray) {
+  var fullHouse = 0;
+  var container = $( '#diagnostics' );
   for (var i = 0; i < testsArray.length; i++){
     if(Modernizr[testsArray[i]]) {
       var alertID = 'div#' + testsArray[i];
@@ -9,8 +11,39 @@ function featureDiagnostics(testsArray) {
       var icon = $( alert ).children( '.glyphicon' );
       icon.removeClass('glyphicon-remove-sign');
       icon.addClass('glyphicon-ok-sign');
+      fullHouse++;
     }
   }
+  if (fullHouse === testsArray.length) {
+    $( container ).append(
+      '<p>
+        It looks like your browser should work perfectly.
+      </p>'
+    );
+  } else if (fullHouse === 0) {
+    $( container ).append(
+      '<p>
+        It looks like your browser doesn’t support the necessary web technologies.
+        Please try a more modern browser such as Google Chrome.
+      </p>'
+    );
+  } else {
+    $( container ).append(
+      '<p>
+        It looks like your browser doesn’t support all the necessary web technologies.
+        Some features may not work.
+      </p>'
+    );
+  }
+  $( container ).append(
+    '<p>
+      If you’re having trouble, please
+      <a href="mailto:swithinbank@gmail.com?subject=Troglodyte%20Angel%20Synth">
+        contact Chris Swithinbank
+      </a>
+      with details.
+    </p>'
+  );
 }
 $( document ).ready(function() {
     $( 'div#no-js-diagnosed' ).replaceWith(
