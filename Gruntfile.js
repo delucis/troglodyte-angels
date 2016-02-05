@@ -174,19 +174,19 @@ module.exports = function(grunt) {
     watch: {
       general: {
         files: ['index.html', '*.ico', 'browserconfig.xml', 'js/vendor/jquery-1.11.2.min.js', 'fonts/**'],
-        tasks: ['copy:general']
+        tasks: ['copy:general', 'manifest']
       },
       cues: {
         files: ['cue-data.yml'],
-        tasks: ['yaml', 'json-minify', 'copy:cues']
+        tasks: ['yaml', 'json-minify', 'copy:cues', 'manifest']
       },
       scripts: {
         files: ['js/main.js', 'js/diagnostics.js', 'js/vendor/*.js'],
-        tasks: ['uglify', 'copy:js']
+        tasks: ['uglify', 'copy:js', 'manifest']
       },
       styles: {
         files: ['css/main.css', 'css/fonts.css', 'css/bootstrap.min.css', 'css/bootstrap-cyborg.min.css'],
-        tasks: ['cssmin', 'copy:css']
+        tasks: ['cssmin', 'copy:css', 'manifest']
       }
     }
   });
