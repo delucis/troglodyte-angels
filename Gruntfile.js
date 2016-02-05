@@ -79,7 +79,6 @@ module.exports = function(grunt) {
             cwd: '',
             src: [
               'index.html',
-              'index.appcache',
               '*.ico',
               'browserconfig.xml',
               'js/vendor/jquery-1.11.2.min.js',
@@ -174,7 +173,7 @@ module.exports = function(grunt) {
     },
     watch: {
       general: {
-        files: ['index.html', 'index.appcache', '*.ico', 'browserconfig.xml', 'js/vendor/jquery-1.11.2.min.js', 'fonts/**'],
+        files: ['index.html', '*.ico', 'browserconfig.xml', 'js/vendor/jquery-1.11.2.min.js', 'fonts/**'],
         tasks: ['copy:general']
       },
       cues: {
