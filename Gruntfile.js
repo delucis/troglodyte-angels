@@ -139,7 +139,7 @@ module.exports = function(grunt) {
         options: {
           basePath: 'tacb/',
           cache: [],
-          fallback: ['/ /index.html'],
+          fallback: ['/ index.html'],
           exclude: [],
           preferOnline: true,
           headcomment: " <%= pkg.name %> v<%= pkg.version %>",
