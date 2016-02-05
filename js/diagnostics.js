@@ -72,5 +72,4 @@ $( document ).ready(function() {
     );
     var testsArray = ['webaudio', 'applicationcache', 'localstorage'];
     featureDiagnostics(testsArray);
-    console.log('Caching change test!');
 });
