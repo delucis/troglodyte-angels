@@ -134,6 +134,29 @@ module.exports = function(grunt) {
         ]
       }
     },
+    manifest: {
+      generate: {
+        options: {
+          basePath: 'tacb/',
+          cache: [],
+          fallback: ['/ /index.html'],
+          exclude: [],
+          preferOnline: true,
+          headcomment: " <%= pkg.name %> v<%= pkg.version %>",
+          verbose: true,
+          timestamp: true
+        },
+        src: [
+          '*.html',
+          '*.json',
+          'css/*.css',
+          'js/*.js',
+          'js/vendor/*.js',
+          'fonts/*.woff'
+        ],
+        dest: 'tacb/index.appcache'
+      }
+    },
     clean: {
       build: {
         src: [ 'tacb' ]
@@ -177,6 +200,6 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'build',
     'Clean & (re)build distribution-ready project in /tacb',
-    ['modernizr:dist', 'yaml', 'json-minify', 'uglify', 'cssmin', 'clean', 'copy:general', 'copy:cues', 'copy:js', 'copy:css', 'copy:icons']
+    ['modernizr:dist', 'yaml', 'json-minify', 'uglify', 'cssmin', 'clean', 'copy:general', 'copy:cues', 'copy:js', 'copy:css', 'copy:icons', "manifest"]
   );
 };
