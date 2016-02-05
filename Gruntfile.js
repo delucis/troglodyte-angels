@@ -81,6 +81,7 @@ module.exports = function(grunt) {
               'index.html',
               '*.ico',
               'browserconfig.xml',
+              '.htaccess',
               'js/vendor/jquery-1.11.2.min.js',
               'fonts/**'
             ],
