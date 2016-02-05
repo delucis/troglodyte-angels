@@ -19,6 +19,7 @@
     "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-json-minify": "^0.4.0",
+    "grunt-manifest": "github:gunta/grunt-manifest",
     "grunt-modernizr": "^1.0.2",
     "grunt-yaml": "^0.4.1",
     "load-grunt-tasks": "^3.3.0"
