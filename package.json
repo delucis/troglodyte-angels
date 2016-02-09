@@ -22,7 +22,8 @@
     "grunt-manifest": "github:gunta/grunt-manifest",
     "grunt-modernizr": "^1.0.2",
     "grunt-yaml": "^0.4.1",
-    "load-grunt-tasks": "^3.3.0"
+    "load-grunt-tasks": "^3.3.0",
+    "snackbarjs": "github:fezvrasta/snackbarjs"
   },
   "scripts": {
     "serve": "grunt",
