@@ -279,9 +279,13 @@ function editLocalStorage(key, value) {
 }
 
 function showUpdateSnackbar() {
+  var barcontent = {
+    alert: 'A new version is available',
+    action: 'Refresh now'
+  }
   var snacks = {
-    content: 'A new version is available. <a href="javascript:window.location.reload();">Please refresh now.</a>',
-    timeout: 10000,
+    content: '<div class="container-fluid"><div class="row"><div class="col-xs-6">' + barcontent.alert + '</div><a class="btn btn-primary col-xs-6" href="javascript:window.location.reload();" role="button">' + barcontent.action + '</a></div></div>',
+    timeout: 30000,
     htmlAllowed: true
   }
   $.snackbar(snacks);
