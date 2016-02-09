@@ -277,3 +277,21 @@ function editLocalStorage(key, value) {
       localStorage.setItem(key, value);
   }
 }
+
+function showUpdateSnackbar() {
+  var snacks = {
+    content: 'A new version is available. <a href="javascript:window.location.reload();">Please refresh now.</a>',
+    timeout: 10000,
+    htmlAllowed: true
+  }
+  $.snackbar(snacks);
+}
+
+$( document ).ready(function() {
+  var appCache = window.applicationCache;
+  switch (appCache.status) {
+    case appCache.UPDATEREADY:
+      showUpdateSnackbar();
+      break;
+  }
+});
