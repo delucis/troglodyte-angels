@@ -49,6 +49,7 @@ module.exports = function(grunt) {
         files: {
           'js/builds/app.js': [
             'js/vendor/bootstrap.min.js',
+            'node_modules/snackbarjs/dist/snackbar.min.js',
             'js/builds/modernizr-build.js',
             'js/vendor/AudioContextMonkeyPatch.js',
             'js/main.js',
@@ -65,6 +66,8 @@ module.exports = function(grunt) {
         files: {
           'css/builds/app.min.css': [
             'css/bootstrap.min.css',
+            'node_modules/snackbarjs/dist/snackbar.min.css',
+            'node_modules/snackbarjs/themes-css/material.css',
             'css/fonts.css',
             'css/bootstrap-cyborg.min.css',
             'css/main.css'
