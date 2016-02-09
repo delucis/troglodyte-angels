@@ -1,6 +1,7 @@
 instruments:
   -
     name: flute/flûte
+    pan: -20.0
     cues:
       35:
         frequency: [1447, 0]
@@ -19,6 +20,7 @@ instruments:
         amplitude: [1, 50, 1, 7500, 0, 18250]
   -
     name: clarinet/clarinette
+    pan: -35
     cues:
       35:
         frequency: [1450, 0]
@@ -37,6 +39,7 @@ instruments:
         amplitude: [1, 50, 1, 5625, 0, 12625]
   -
     name: horn/cor
+    pan: 10
     cues:
       24:
         frequency: [1248, 0]
@@ -102,6 +105,7 @@ instruments:
         amplitude: [1, 50, 1, 10000, 0, 19250]
   -
     name: trumpet/trompette
+    pan: 30
     cues:
       36:
         frequency: [1628, 0]
@@ -123,6 +127,7 @@ instruments:
         amplitude: [1, 50, 1, 7500, 0, 10950]
   -
     name: perc. 1
+    pan: -5
     cues:
       37:
         frequency: [1070, 0]
@@ -141,6 +146,7 @@ instruments:
         amplitude: [0.3, 50, 1, 7188, 1, 3600, 0, 9000]
   -
     name: perc. 2
+    pan: 5
     cues:
       13:
         frequency: [1257, 0]
