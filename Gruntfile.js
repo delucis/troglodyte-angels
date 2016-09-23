@@ -168,7 +168,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          port: 4000,
+          port: 4040,
           base: 'tacb',
           hostname: '*',
           open: true
@@ -197,7 +197,7 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   grunt.registerTask(
     'default',
-    'Run “grunt build”, serve to localhost:4000, and watch for changes.',
+    'Run “grunt build”, serve to localhost:4040, and watch for changes.',
     ['build', 'connect', 'watch']
   );
   grunt.registerTask(
